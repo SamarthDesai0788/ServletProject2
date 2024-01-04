@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+        /* Your existing CSS styles */
+    </style>
+</head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            width: 300px;
+            margin: 20px auto;
+            background-color: rgb(252, 131, 167);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+<body>
+	
+    <form action="./Register" method="get">
+		
+		<h1>Register</h1>
+        <div class="form-box">
+            Enter Name:<input type="text" name="name" required><br>
+            Enter Password:<input type="password" name="pass" required><br>
+            Enter City:<input type="text" name="city" required><br>
+            <p>Already have an account? <a href="./login.html">Login</a></p>
+            <input type="submit" value="Register" id="registerBtn" style="display: none;">
+        </div>
+    </form>
+
+    <script>
+        // Get all input fields
+        const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
+
+        // Add event listeners to input fields to check if all are filled
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const allFilled = [...inputs].every(input => input.value.trim() !== '');
+                const registerBtn = document.getElementById('registerBtn');
+                registerBtn.style.display = allFilled ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
